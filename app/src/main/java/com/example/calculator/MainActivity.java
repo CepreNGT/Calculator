@@ -19,14 +19,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        panel = findViewById(R.id.panel);
         if (savedInstanceState == null) {
             calculator = new Calculator();
         } else {
             calculator = savedInstanceState.getParcelable(CALCULATOR);
+            text = Calculator.getReturnStatement();
+            updateTextView();
         }
-
-        panel = findViewById(R.id.panel);
 
         findViewById(R.id.key_one).setOnClickListener(v -> {
             text = Calculator.number(1);

@@ -189,4 +189,8 @@ public class Calculator implements Parcelable {
         }
         return returnStatement;
     }
+
+    public static String getReturnStatement(){
+        return returnStatement;
+    }
 }

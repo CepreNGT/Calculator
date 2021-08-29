@@ -4,4 +4,9 @@
     <dimen name="text_size">40sp</dimen>
     <dimen name="stroke_width">5dp</dimen>
     <dimen name="cornerRadius">20dp</dimen>
+    <dimen name="settings_width">56dp</dimen>
+    <dimen name="settings_height">60dp</dimen>
+    <dimen name="layout_padding">10dp</dimen>
+    <dimen name="button_layout_margin">2dp</dimen>
+    <dimen name="text_size_2">20sp</dimen>
 </resources>

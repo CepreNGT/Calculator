@@ -4,30 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:padding="20dp"
+    android:padding="@dimen/layout_padding"
     tools:context=".MainActivity">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/settings"
+        android:layout_width="@dimen/settings_width"
+        android:layout_height="@dimen/settings_height"
+        android:backgroundTint="@color/grey"
+        app:icon="@drawable/ic_baseline_settings_24"
+        app:iconTint="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/panel"
+        app:layout_constraintLeft_toLeftOf="@id/key_c"
+        app:layout_constraintRight_toRightOf="@id/key_three"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/dark_grey" />
 
     <TextView
         android:id="@+id/panel"
-        style="@style/CalcPanel"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         app:layout_constraintBottom_toTopOf="@+id/key_c"
         app:layout_constraintLeft_toLeftOf="@id/key_c"
         app:layout_constraintRight_toRightOf="@id/key_three"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/settings" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_c"
-        style="@style/CalcButtons.c"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
+        android:backgroundTint="@color/for_c"
         android:text="@string/key_c"
         app:layout_constraintBottom_toTopOf="@+id/key_division"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/key_one"
-        app:layout_constraintTop_toBottomOf="@id/panel" />
+        app:layout_constraintTop_toBottomOf="@id/panel"
+        app:strokeColor="@color/dark_red" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_one"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_1"
         app:layout_constraintBottom_toTopOf="@+id/key_four"
         app:layout_constraintLeft_toRightOf="@id/key_c"
@@ -36,7 +53,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_two"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_2"
         app:layout_constraintBottom_toTopOf="@+id/key_five"
         app:layout_constraintLeft_toRightOf="@id/key_one"
@@ -45,7 +63,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_three"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_3"
         app:layout_constraintBottom_toTopOf="@+id/key_six"
         app:layout_constraintLeft_toRightOf="@id/key_two"
@@ -55,7 +74,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_division"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_div"
         app:layout_constraintBottom_toTopOf="@+id/key_multiple"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -64,7 +84,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_four"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_4"
         app:layout_constraintBottom_toTopOf="@+id/key_seven"
         app:layout_constraintLeft_toRightOf="@id/key_division"
@@ -73,7 +94,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_five"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_5"
         app:layout_constraintBottom_toTopOf="@+id/key_eight"
         app:layout_constraintLeft_toRightOf="@id/key_four"
@@ -82,7 +104,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_six"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_6"
         app:layout_constraintBottom_toTopOf="@+id/key_nine"
         app:layout_constraintLeft_toRightOf="@id/key_five"
@@ -92,7 +115,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_multiple"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_mult"
         app:layout_constraintBottom_toTopOf="@+id/key_plus"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -101,7 +125,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_seven"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_7"
         app:layout_constraintBottom_toTopOf="@+id/key_minus"
         app:layout_constraintLeft_toRightOf="@id/key_multiple"
@@ -110,7 +135,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_eight"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_8"
         app:layout_constraintBottom_toTopOf="@+id/key_zero"
         app:layout_constraintLeft_toRightOf="@id/key_seven"
@@ -119,7 +145,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_nine"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_9"
         app:layout_constraintBottom_toTopOf="@+id/key_dot"
         app:layout_constraintLeft_toRightOf="@id/key_eight"
@@ -129,7 +156,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_plus"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_add"
         app:layout_constraintBottom_toTopOf="@+id/key_equal"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -138,7 +166,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_minus"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_sub"
         app:layout_constraintBottom_toTopOf="@+id/key_equal"
         app:layout_constraintLeft_toRightOf="@id/key_plus"
@@ -147,7 +176,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_zero"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_0"
         app:layout_constraintBottom_toTopOf="@+id/key_equal"
         app:layout_constraintLeft_toRightOf="@id/key_minus"
@@ -156,7 +186,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_dot"
-        style="@style/CalcButtons"
+        android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_dot"
         app:layout_constraintBottom_toTopOf="@+id/key_equal"
         app:layout_constraintLeft_toRightOf="@id/key_zero"
@@ -165,8 +196,8 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/key_equal"
-        style="@style/CalcButtons"
         android:layout_width="@dimen/zero_size"
+        android:layout_height="@dimen/zero_size"
         android:text="@string/key_equal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/key_plus"

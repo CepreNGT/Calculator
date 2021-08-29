@@ -5,16 +5,16 @@ import android.os.Parcelable;
 
 public class Calculator implements Parcelable {
 
-    private static double firstDigit = 0;
-    private static double secondDigit = 0;
-    private static char symbol = '!';
-    private static double lastNumber = 0;
-    private static int dotFlag = 0;
-    private static String returnStatement = "";
-    private static boolean firstSecondFlag = false;
-    private static char lastSymbol = '!';
-    private static boolean firstDigitFlag = false;
-    private static boolean secondDigitFlag = false;
+    private double firstDigit = 0;
+    private double secondDigit = 0;
+    private char symbol = '!';
+    private double lastNumber = 0;
+    private int dotFlag = 0;
+    private String returnStatement = "";
+    private boolean firstSecondFlag = false;
+    private char lastSymbol = '!';
+    private boolean firstDigitFlag = false;
+    private boolean secondDigitFlag = false;
 
     public Calculator() {
     }
@@ -63,7 +63,7 @@ public class Calculator implements Parcelable {
         }
     };
 
-    public static String getResult() {
+    public String getResult() {
         secondDigit = 0;
         symbol = '!';
         returnStatement = "";
@@ -71,35 +71,43 @@ public class Calculator implements Parcelable {
             if (dotFlag != 0) {
                 firstDigit /= dotFlag;
             }
+            dotFlag = 0;
             return String.valueOf(firstDigit);
         } else {
             if (dotFlag != 0) {
-                secondDigit /= dotFlag;
+                lastNumber /= dotFlag;
             }
         }
-        secondDigitFlag = false;
+        dotFlag = 0;
         if (lastSymbol == '+') {
-            firstDigit = firstDigit + lastNumber;
-            returnStatement = String.valueOf(firstDigit);
+            if (secondDigitFlag) {
+                firstDigit = firstDigit + lastNumber;
+                returnStatement = String.valueOf(firstDigit);
+            }
             return String.valueOf(firstDigit);
         }
         if (lastSymbol == '-') {
-            firstDigit = firstDigit - lastNumber;
-            returnStatement = String.valueOf(firstDigit);
+            if (secondDigitFlag) {
+                firstDigit = firstDigit - lastNumber;
+                returnStatement = String.valueOf(firstDigit);
+            }
             return String.valueOf(firstDigit);
         }
         if (lastSymbol == '*') {
-            firstDigit = firstDigit * lastNumber;
-            returnStatement = String.valueOf(firstDigit);
+            if (secondDigitFlag) {
+                firstDigit = firstDigit * lastNumber;
+                returnStatement = String.valueOf(firstDigit);
+            }
             return String.valueOf(firstDigit);
         }
         if (lastSymbol == '/') {
             try {
-                if (lastNumber == 0) {
+                if (lastNumber == 0 && secondDigitFlag) {
                     throw new ArithmeticException();
+                } else if (lastNumber != 0) {
+                    firstDigit = firstDigit / lastNumber;
+                    returnStatement = String.valueOf(firstDigit);
                 }
-                firstDigit = firstDigit / lastNumber;
-                returnStatement = String.valueOf(firstDigit);
                 return String.valueOf(firstDigit);
             } catch (ArithmeticException e) {
                 clear();
@@ -109,7 +117,7 @@ public class Calculator implements Parcelable {
         return "";
     }
 
-    public static String newSymbol(char symb) {
+    public String newSymbol(char symb) {
         if (firstDigitFlag) {
             if (symbol == '!') {
                 symbol = symb;
@@ -136,7 +144,7 @@ public class Calculator implements Parcelable {
         return returnStatement;
     }
 
-    public static String number(int num) {
+    public String number(int num) {
         firstDigitFlag = true;
         if (!firstSecondFlag) {
             firstDigit = firstDigit * 10 + num;
@@ -157,7 +165,7 @@ public class Calculator implements Parcelable {
         return returnStatement;
     }
 
-    public static String clear() {
+    public String clear() {
         firstDigit = 0;
         secondDigit = 0;
         symbol = '!';
@@ -171,7 +179,7 @@ public class Calculator implements Parcelable {
         return returnStatement;
     }
 
-    public static String dot() {
+    public String dot() {
         if (firstSecondFlag && symbol == '!') {
             clear();
             returnStatement = "0.";
@@ -190,7 +198,7 @@ public class Calculator implements Parcelable {
         return returnStatement;
     }
 
-    public static String getReturnStatement(){
+    public String getReturnStatement() {
         return returnStatement;
     }
 }

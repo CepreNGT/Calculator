@@ -11,4 +11,8 @@
     <color name="dark_green">#FF006c1a</color>
     <color name="more_green">#FF00e01a</color>
     <color name="for_c">#FFf09100</color>
+    <color name="for_c_in_dark">#FF7a0c04</color>
+    <color name="green_for_night">#FF012105</color>
+    <color name="red">#FFf00000</color>
+
 </resources>

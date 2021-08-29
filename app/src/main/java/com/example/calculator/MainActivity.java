@@ -24,92 +24,92 @@ public class MainActivity extends AppCompatActivity {
             calculator = new Calculator();
         } else {
             calculator = savedInstanceState.getParcelable(CALCULATOR);
-            text = Calculator.getReturnStatement();
+            text = calculator.getReturnStatement();
             updateTextView();
         }
 
         findViewById(R.id.key_one).setOnClickListener(v -> {
-            text = Calculator.number(1);
+            text = calculator.number(1);
             updateTextView();
         });
 
         findViewById(R.id.key_two).setOnClickListener(v -> {
-            text = Calculator.number(2);
+            text = calculator.number(2);
             updateTextView();
         });
 
         findViewById(R.id.key_three).setOnClickListener(v -> {
-            text = Calculator.number(3);
+            text = calculator.number(3);
             updateTextView();
         });
 
         findViewById(R.id.key_four).setOnClickListener(v -> {
-            text = Calculator.number(4);
+            text = calculator.number(4);
             updateTextView();
         });
 
         findViewById(R.id.key_five).setOnClickListener(v -> {
-            text = Calculator.number(5);
+            text = calculator.number(5);
             updateTextView();
         });
 
         findViewById(R.id.key_six).setOnClickListener(v -> {
-            text = Calculator.number(6);
+            text = calculator.number(6);
             updateTextView();
         });
 
         findViewById(R.id.key_seven).setOnClickListener(v -> {
-            text = Calculator.number(7);
+            text = calculator.number(7);
             updateTextView();
         });
 
         findViewById(R.id.key_eight).setOnClickListener(v -> {
-            text = Calculator.number(8);
+            text = calculator.number(8);
             updateTextView();
         });
 
         findViewById(R.id.key_nine).setOnClickListener(v -> {
-            text = Calculator.number(9);
+            text = calculator.number(9);
             updateTextView();
         });
 
         findViewById(R.id.key_zero).setOnClickListener(v -> {
-            text = Calculator.number(0);
+            text = calculator.number(0);
             updateTextView();
         });
 
         findViewById(R.id.key_c).setOnClickListener(v -> {
-            text = Calculator.clear();
+            text = calculator.clear();
             updateTextView();
         });
 
         findViewById(R.id.key_equal).setOnClickListener(v -> {
-            text = Calculator.getResult();
+            text = calculator.getResult();
             updateTextView();
         });
 
         findViewById(R.id.key_multiple).setOnClickListener(v -> {
-            text = Calculator.newSymbol('*');
+            text = calculator.newSymbol('*');
             updateTextView();
         });
 
         findViewById(R.id.key_plus).setOnClickListener(v -> {
-            text = Calculator.newSymbol('+');
+            text = calculator.newSymbol('+');
             updateTextView();
         });
 
         findViewById(R.id.key_minus).setOnClickListener(v -> {
-            text = Calculator.newSymbol('-');
+            text = calculator.newSymbol('-');
             updateTextView();
         });
 
         findViewById(R.id.key_division).setOnClickListener(v -> {
-            text = Calculator.newSymbol('/');
+            text = calculator.newSymbol('/');
             updateTextView();
         });
 
         findViewById(R.id.key_dot).setOnClickListener(v -> {
-            text = Calculator.dot();
+            text = calculator.dot();
             updateTextView();
         });
 

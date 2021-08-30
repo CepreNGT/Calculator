@@ -14,5 +14,12 @@
     <color name="for_c_in_dark">#FF7a0c04</color>
     <color name="green_for_night">#FF012105</color>
     <color name="red">#FFf00000</color>
+    <color name="dark_red">#500000</color>
+    <color name="light_red">#FF003B</color>
+    <color name="grey">#9C9C9C</color>
+    <color name="dark_grey">#2C2C2C</color>
+    <color name="blue">#2196F3</color>
+    <color name="light_blue">#00BCD4</color>
+    <color name="dark_blue">#3F51B5</color>
 
 </resources>

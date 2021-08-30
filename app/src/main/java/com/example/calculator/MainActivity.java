@@ -1,12 +1,20 @@
 package com.example.calculator;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.calculator.domain.AppTheme;
 import com.example.calculator.domain.Calculator;
+import com.example.calculator.storage.ThemeStorage;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,10 +22,35 @@ public class MainActivity extends AppCompatActivity {
     private static final String CALCULATOR = "CALCULATOR";
     private String text;
     private TextView panel;
+    private ThemeStorage storage;
+
+    private final ActivityResultLauncher<Intent> activityResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        String theme_key = result.getData().getStringExtra(SettingsActivity.THEME);
+                        if (theme_key.equals("MAIN")) {
+                            storage.setAppTheme(AppTheme.MAIN);
+                        }
+                        if (theme_key.equals("RED")) {
+                            storage.setAppTheme(AppTheme.RED);
+                        }
+                        if (theme_key.equals("BLUE")) {
+                            storage.setAppTheme(AppTheme.BLUE);
+                        }
+                        recreate();
+                    }
+                }
+            }
+    );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        storage = new ThemeStorage(this);
+        setTheme(storage.getAppTheme().getTheme());
         setContentView(R.layout.activity_main);
         panel = findViewById(R.id.panel);
         if (savedInstanceState == null) {
@@ -27,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
             text = calculator.getReturnStatement();
             updateTextView();
         }
-
         findViewById(R.id.key_one).setOnClickListener(v -> {
             text = calculator.number(1);
             updateTextView();
@@ -111,6 +143,13 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.key_dot).setOnClickListener(v -> {
             text = calculator.dot();
             updateTextView();
+        });
+
+        findViewById(R.id.settings).setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            String theme = storage.getAppTheme().getKey();
+            intent.putExtra(SettingsActivity.THEME, theme);
+            activityResult.launch(intent);
         });
 
     }

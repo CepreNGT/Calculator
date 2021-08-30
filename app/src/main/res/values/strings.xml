@@ -17,4 +17,10 @@
     <string name="key_mult">*</string>
     <string name="key_c">C</string>
     <string name="key_equal">=</string>
+    <string name="settings_text">SETTINGS</string>
+    <string name="theme_text">Theme</string>
+    <string name="main_theme_text">MAIN</string>
+    <string name="red_theme_text">RED</string>
+    <string name="blue_theme_text">BLUE</string>
+    <string name="set_button">SET</string>
 </resources>
